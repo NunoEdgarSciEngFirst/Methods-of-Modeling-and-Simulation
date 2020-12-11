@@ -20,6 +20,7 @@ def timeit(func):
 @timeit
 def diffusion_solver(u, D, t_end=1, t_krit=1, dx=1, type_='explicit'):
     dt = t_krit * dx**2 / (2 * D)
+    print(dt)
     r = D * dt / dx**2
     time = np.arange(0, t_end + dt, dt)
     A = get_diff_matrix(len(u), r) if type_ != 'explicit' else None
